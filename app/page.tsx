@@ -5,6 +5,7 @@ import { usePerplexityStream } from "@/hooks/use-perplexity-stream";
 import { useAutoScroll } from "@/hooks/use-auto-scroll";
 import { ChatInput } from "@/components/ChatInput";
 import { MessageBubble } from "@/components/MessageBubble";
+import { NewChatButton } from "@/components/NewChatButton";
 
 export default function Home() {
   const { messages, isLoading, handleSearch, currentStep } = usePerplexityStream();
@@ -31,6 +32,9 @@ export default function Home() {
   // Chat View - Show when messages exist
   return (
     <div className="flex min-h-screen flex-col">
+      {/* New Chat Button */}
+      <NewChatButton />
+      
       {/* Messages Container */}
       <div 
         ref={messagesContainerRef}

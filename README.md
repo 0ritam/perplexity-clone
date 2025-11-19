@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Perplexity AI Clone
 
-## Getting Started
+A pixel-perfect clone of Perplexity AI's chat interface built with Next.js, featuring real-time streaming responses and smooth animations.
 
-First, run the development server:
+## 🚀 Live Demo
+
+**Vercel Deployment:** [Add your deployment link here]
+
+## ✨ Features
+
+### Core Functionality
+- ✅ Multi-turn conversation support (unlimited messages)
+- ✅ Real-time streaming API integration
+- ✅ Server-Sent Events (SSE) parsing
+- ✅ Progressive loading states ("Searching..." → "Finding results...")
+- ✅ Source citations with clickable links
+- ✅ Markdown rendering with table support
+- ✅ New Chat button to reset conversations
+
+### UI/UX Polish
+- ✅ Pixel-perfect Perplexity UI replication
+- ✅ Smooth fade-in and slide animations
+- ✅ Auto-scroll behavior (only when near bottom)
+- ✅ Fixed input at bottom, questions scroll to top
+- ✅ Hover effects on source cards
+- ✅ Custom scrollbar styling
+- ✅ Responsive sidebar navigation
+- ✅ Loading spinners and status indicators
+
+## 🛠️ Tech Stack
+
+- **Framework:** Next.js 16 (App Router)
+- **Styling:** TailwindCSS
+- **UI Components:** Custom components + shadcn/ui base
+- **Markdown:** react-markdown + remark-gfm
+- **Icons:** lucide-react
+- **API:** Server-Sent Events (SSE) streaming
+
+## 📦 Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/0ritam/perplexity-clone.git
+
+# Navigate to project directory
+cd perplexity-clone
+
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🏗️ Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+perplexity-clone/
+├── app/
+│   ├── page.tsx           # Main chat interface
+│   ├── layout.tsx         # Root layout with sidebar
+│   └── globals.css        # Global styles
+├── components/
+│   ├── ChatInput.tsx      # Message input with icons
+│   ├── MessageBubble.tsx  # Individual message component
+│   ├── SourceCarousel.tsx # Horizontal scrolling source cards
+│   ├── StatusIndicator.tsx # Loading state component
+│   ├── NewChatButton.tsx  # Reset conversation button
+│   └── PerplexitySidebar.tsx # Left navigation sidebar
+├── hooks/
+│   ├── use-perplexity-stream.ts # SSE streaming logic
+│   └── use-auto-scroll.ts       # Smart scroll behavior
+└── public/
+    └── download.png       # Perplexity logo
+```
 
-## Learn More
+## 🔌 API Integration
 
-To learn more about Next.js, take a look at the following resources:
+**Endpoint:** `https://mock-askperplexity.piyushhhxyz.deno.net`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The app connects to a mock Perplexity API that returns Server-Sent Events (SSE) with:
+- Answer text in `blocks[0].diff_block.patches`
+- Sources in `content.web_results`
+- Loading states in `step_type`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🚀 Deploy to Vercel
 
-## Deploy on Vercel
+```bash
+# Install Vercel CLI
+npm i -g vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Deploy
+vercel --prod
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Or connect your GitHub repository to Vercel for automatic deployments.
+
+## 👨‍💻 Author
+
+**Ritam Chakraborty**
+- GitHub: [@0ritam](https://github.com/0ritam)
+
+---
+
+Built for educational purposes. Replicates Perplexity AI's UI/UX with a mock API endpoint.
