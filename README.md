@@ -4,7 +4,7 @@ A pixel-perfect clone of Perplexity AI's chat interface built with Next.js, feat
 
 ## 🚀 Live Demo
 
-**Vercel Deployment:** [Add your deployment link here]
+**Vercel Deployment:** [https://perplexity-clone-liart.vercel.app/](https://perplexity-clone-liart.vercel.app/)
 
 ## ✨ Features
 
